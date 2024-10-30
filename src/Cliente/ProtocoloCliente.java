@@ -20,6 +20,7 @@ import Simetrico.DiffieHellman;
 public class ProtocoloCliente{
 	
 	public static void procesar(BufferedReader stdIn, BufferedReader pIn, PrintWriter pOut, String idUsuario, String tipoCifrado, int numClientes, int numServidor, String modo) throws IOException {
+		
 		Tiempo tiempo = new Tiempo();
 			
 		long tiempoInicio = System.currentTimeMillis();

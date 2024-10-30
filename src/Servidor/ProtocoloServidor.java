@@ -132,8 +132,14 @@ public class ProtocoloServidor {
 		BigInteger llavePrivadaDF = DiffieHellman.generarClavePrivada();
 		PrivateKey llavePrivada = (PrivateKey) LlaveRSA.leerLlave("privada");
 		
-		BigInteger p = DiffieHellman.p;
-		BigInteger g = DiffieHellman.g;
+		BigInteger[] valorPyG = null;
+		try {
+			valorPyG = DiffieHellman.generarPyG();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		BigInteger p = valorPyG[0];
+		BigInteger g = valorPyG[1];
 		BigInteger gx = DiffieHellman.calcularExponenciacion(g, llavePrivadaDF, p);
 		
 		pOut.println(g);
